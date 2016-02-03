@@ -1,443 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!--The below tag ensures that the web application runs on full-screen mode-->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <!--Sets the style of the status bar for the web application-->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <!--Screen size and zoom level specifications-->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sample 1: Heart and Lung Diagram</title>
-    <script src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
-    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.2.3.2/lib/polymer/polymer.html">
-</head>
-<body>
-<h1>Sample 1: Heart and Lung Diagram</h1>
-<img src="images/ex1.jpg" alt="Image of the heart and lungs"/>
-<dom-module id="dg-btn-longdesc">
-    <style>
-        :host {
-            display: inline;
-            margin-bottom: 1em;
-            margin-right: 0.5em;
-            font-size: 14px;
-            font-weight: normal;
-            text-decoration:none;
-            cursor:pointer;
-            text-align: center;
-            color: buttontext;
-            padding: 0.2em;
-            border: 2px outset buttonface;
-            border-image-source: initial;
-            border-image-slice: initial;
-            border-image-width: initial;
-            border-image-outset: initial;
-            border-image-repeat: initial;
-            background-color: buttonface;
-            -moz-border-radius:3px;
-            -webkit-border-radius:3px;
-            border-radius:3px;
-        }
-    </style>
-    <template>
-        <content></content>
-    </template>
-    <script>
-        Polymer({
-            is: "dg-btn-longdesc",
-            hostAttributes: {
-                tabindex: 0,
-                role: "button"
-            },
-            listeners: {
-                "click": "handleClick",
-                "keydown" : "handleKeyDown",
-                "keypress" : "handleKeyPress"
-            },
-            toggleLongDesc: function(e) {
-                $('dg-summary').attr('style', 'display: none;');
-                $('dg-tactiledesc').attr('style', 'display: none;');
-                var el = $('dg-longdesc');
-                if (el.attr('style') == undefined) {
-                    el.attr('style', 'display: none;');
-                }
-                else {
-                    el.removeAttr('style');
-                    $('#long_desc').focus();
-                }
-            },
-            handleKeyPress: function(e) {
-                if (e.altKey || e.ctrlKey || e.shiftKey) {
-                    return true;
-                }
-                switch (e.keyCode) {
-                    case 27:
-                    case 13:
-                    case 37:
-                    case 38:
-                    case 39:
-                    case 40: {
-                        e.stopPropagation();
-                        return false;
-                    }
-                }
-                return true;
-            },
-            handleKeyDown: function(e) {
-                switch (e.keyCode) {
-                    case 13:
-                    case 32: {
-                        this.toggleLongDesc();
-                        e.stopPropagation();
-                        return false;
-                        break;
-                    }
-                }
-                return true;
-            },
-            handleClick: function(e) {
-                this.toggleLongDesc();
-                e.stopPropagation();
-                return false;
-            }
-        });
-    </script>
-</dom-module>
-<dom-module id="dg-btn-summary">
-    <style>
-        :host {
-            display: inline;
-            margin-bottom: 1em;
-            margin-right: 0.5em;
-            font-size: 14px;
-            font-weight: normal;
-            text-decoration:none;
-            cursor:pointer;
-            text-align: center;
-            color: buttontext;
-            padding: 0.2em;
-            border: 2px outset buttonface;
-            border-image-source: initial;
-            border-image-slice: initial;
-            border-image-width: initial;
-            border-image-outset: initial;
-            border-image-repeat: initial;
-            background-color: buttonface;
-            -moz-border-radius:3px;
-            -webkit-border-radius:3px;
-            border-radius:3px;
-        }
-    </style>
-    <template>
-        <content></content>
-    </template>
-    <script>
-        Polymer({
-            is: "dg-btn-summary",
-            hostAttributes: {
-                tabindex: 0,
-                role: "button"
-            },
-            listeners: {
-                "click": "handleClick",
-                "keydown" : "handleKeyDown",
-                "keypress" : "handleKeyPress"
-            },
-            toggleShortDesc: function(e) {
-                $('dg-longdesc').attr('style', 'display: none;');
-                $('dg-tactiledesc').attr('style', 'display: none;');
-                var el = $('dg-summary');
-                if (el.attr('style') == undefined) {
-                    el.attr('style', 'display: none;');
-                }
-                else {
-                    el.removeAttr('style');
-                    $('#short_desc').focus();
-                }
-            },
-            handleKeyPress: function(e) {
-                if (e.altKey || e.ctrlKey || e.shiftKey) {
-                    return true;
-                }
-                switch (e.keyCode) {
-                    case 27:
-                    case 13:
-                    case 37:
-                    case 38:
-                    case 39:
-                    case 40: {
-                        e.stopPropagation();
-                        return false;
-                    }
-                }
-                return true;
-            },
-            handleKeyDown: function(e) {
-                switch (e.keyCode) {
-                    case 13:
-                    case 32: {
-                        this.toggleShortDesc();
-                        e.stopPropagation();
-                        return false;
-                        break;
-                    }
-                }
-                return true;
-            },
-            handleClick: function(e) {
-                this.toggleShortDesc();
-                e.stopPropagation();
-                return false;
-            }
-        });
-    </script>
-</dom-module>
-<dom-module id="dg-btn-tactiledesc">
-    <style>
-        :host {
-            display: inline;
-            margin-bottom: 1em;
-            margin-right: 0.5em;
-            font-size: 14px;
-            font-weight: normal;
-            text-decoration:none;
-            cursor:pointer;
-            text-align: center;
-            color: buttontext;
-            padding: 0.2em;
-            border: 2px outset buttonface;
-            border-image-source: initial;
-            border-image-slice: initial;
-            border-image-width: initial;
-            border-image-outset: initial;
-            border-image-repeat: initial;
-            background-color: buttonface;
-            -moz-border-radius:3px;
-            -webkit-border-radius:3px;
-            border-radius:3px;
-        }
-    </style>
-    <template>
-        <content></content>
-    </template>
-    <script>
-        Polymer({
-            is: "dg-btn-tactiledesc",
-            hostAttributes: {
-                tabindex: 0,
-                role: "button"
-            },
-            listeners: {
-                "click": "handleClick",
-                "keydown" : "handleKeyDown",
-                "keypress" : "handleKeyPress"
-            },
-            toggleTactileDesc: function(e) {
-                $('dg-summary').attr('style', 'display: none;');
-                $('dg-longdesc').attr('style', 'display: none;');
-                var el = $('dg-tactiledesc');
-                if (el.attr('style') == undefined) {
-                    el.attr('style', 'display: none;');
-                }
-                else {
-                    el.removeAttr('style');
-                    $('#tactile_desc').focus();
-                }
-            },
-            handleKeyPress: function(e) {
-                if (e.altKey || e.ctrlKey || e.shiftKey) {
-                    return true;
-                }
-                switch (e.keyCode) {
-                    case 27:
-                    case 13:
-                    case 37:
-                    case 38:
-                    case 39:
-                    case 40: {
-                        e.stopPropagation();
-                        return false;
-                    }
-                }
-                return true;
-            },
-            handleKeyDown: function(e) {
-                switch (e.keyCode) {
-                    case 13:
-                    case 32: {
-                        this.toggleTactileDesc();
-                        e.stopPropagation();
-                        return false;
-                        break;
-                    }
-                }
-                return true;
-            },
-            handleClick: function(e) {
-                this.toggleTactileDesc();
-                e.stopPropagation();
-                return false;
-            }
-        });
-    </script>
-</dom-module>
-<dom-module id="dg-longdesc">
-    <style>
-        :host {
-            display: block;
-            background-color: #ffffff;
-            color: #007ba8;
-            width: 99%;
-            padding: 8px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid #007ba8;
-            margin-top: 1em;
-            font-style: normal;
-            font-size: 14px;
-        }
-    </style>
-    <template>
-        <div tabindex="0" id="long_desc">
-            <content></content>
-        </div>
-    </template>
-    <script>
-        Polymer({
-            is: "dg-longdesc",
-            hostAttributes: {
-                style: 'display: none;'
-            },
-        });
-    </script>
-</dom-module>
-<dom-module id="dg-summary">
-    <style is="custom-style">
-        :host {
-            display: block;
-            background-color: #ffffff;
-            color: #007ba8;
-            width: 99%;
-            padding: 8px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid #007ba8;
-            margin-top: 1em;
-            font-style: normal;
-            font-size: 14px;
-        }
-    </style>
-    <template>
-        <div tabindex="0" id="short_desc">
-            <content></content>
-        </div>
-    </template>
-    <script>
-        Polymer({
-            is: "dg-summary",
-            hostAttributes: {
-                style: 'display: none;'
-            }
-        });
-    </script>
-</dom-module>
-<dom-module id="dg-tactiledesc">
-    <style is="custom-style">
-        :host {
-            display: block;
-            background-color: #ffffff;
-            color: #007ba8;
-            width: 99%;
-            padding: 8px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid #007ba8;
-            margin-top: 1em;
-            font-style: normal;
-            font-size: 14px;
-        }
-    </style>
-    <template>
-        <div id="tactile_desc" tabindex="0">
-            <content></content>
-        </div>
-    </template>
-    <script>
-        Polymer({
-            is: "dg-tactiledesc",
-            hostAttributes: {
-                style: 'display: none;'
-            }
-        });
-    </script>
-</dom-module>
-<dom-module id="dg-tour">
-    <template>
-        <div>
-            <p><strong>Tour:</strong></p>
-            <p>
-                <content></content>
-            </p>
-        </div>
-    </template>
-    <script>
-        Polymer({
-            is: "dg-tour",
-            properties: {
-                source: String
-            }
-        });
-    </script>
-</dom-module>
-<div role="main">
-    <div id="q8_EXPLORE" class="question">
-        <table class="split" role="presentation">
-            <tbody role="presentation">
-            <tr role="presentation">
-                <dg-btn-longdesc>Show/Hide Long Description</dg-btn-longdesc>
-                <dg-btn-summary>Show/Hide Short Description</dg-btn-summary>
-                <dg-btn-tactiledesc>Show/Hide Tour of Tactile Description</dg-btn-tactiledesc>
-                <td class="leftside" role="presentation">
-                    <div class="alternates">
-                        <dg-summary>
-                            Systems in Sync. The circulatory and respiratory systems work together to transport oxygen-rich blood through the body. A diagram shows a cross-section of a heart between two lungs. Red arrows show the path of oxygen-rich blood cells. Blue arrows show the path of oxygen-poor blood. * Oxygen-rich blood cells travel to the heart from the lungs. * The heart pumps enriched blood cells. They travel through the arteries to the body. * Throughout the body, red blood cells deliver oxygen to cells and remove carbon dioxide. * Veins carry oxygen-poor blood back to the heart. * The heart pumps blood back to the lungs to eliminate carbon dioxide and absorb oxygen. * Red blood cells move through the lungs, taking in oxygen and exchanging it for carbon dioxide.
-                        </dg-summary>
-                        <dg-longdesc>
-                            Systems in Sync. The circulatory and respiratory systems work together to transport oxygen-rich blood through the body. A diagram shows a cross-section of a heart between two lungs. Red arrows show the path of oxygen-rich blood cells. Blue arrows show the path of oxygen-poor blood. * Oxygen-rich blood cells travel to the heart from the lungs. * The heart pumps enriched blood cells. They travel through the arteries to the body. * Throughout the body, red blood cells deliver oxygen to cells and remove carbon dioxide. * Veins carry oxygen-poor blood back to the heart. * The heart pumps blood back to the lungs to eliminate carbon dioxide and absorb oxygen. * Red blood cells move through the lungs, taking in oxygen and exchanging it for carbon dioxide.
-                        </dg-longdesc>
-                        <dg-tactiledesc>
-                            The first image contains the diagram and the key. The second image includes all of the numbered text that is part of the original image.
-                            <dg-tour source="images/heart-lung-tg.jpg">
+    <head>
+        <meta charset="UTF-8">
+        <!--The below tag ensures that the web application runs on full-screen mode-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!--Sets the style of the status bar for the web application-->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <!--Screen size and zoom level specifications-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sample 1: Heart and Lung Diagram</title>
+        <script src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
+        <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.2.3.2/lib/polymer/polymer.html">
+        <link rel="import" href="custom.html">
+    </head>
+    <body>
+        <h1>Sample 1: Heart and Lung Diagram</h1>
+        <img src="images/ex1.jpg" alt="Image of the heart and lungs"/>
 
-                            </dg-tour>
-                            <dg-tour source="images/heart-lung-tg-p2.jpg">
+        <div role="main">
+            <div id="q8_EXPLORE" class="question">
+                <table class="split" role="presentation">
+                    <tbody role="presentation">
+                    <tr role="presentation">
+                        <dg-btn-longdesc>Show/Hide Long Description</dg-btn-longdesc>
+                        <dg-btn-summary>Show/Hide Short Description</dg-btn-summary>
+                        <dg-btn-tactiledesc>Show/Hide Tour of Tactile Description</dg-btn-tactiledesc>
+                        <td class="leftside" role="presentation">
+                            <div class="alternates">
+                                <dg-summary>
+                                    Systems in Sync. The circulatory and respiratory systems work together to transport oxygen-rich blood through the body. A diagram shows a cross-section of a heart between two lungs. Red arrows show the path of oxygen-rich blood cells. Blue arrows show the path of oxygen-poor blood. * Oxygen-rich blood cells travel to the heart from the lungs. * The heart pumps enriched blood cells. They travel through the arteries to the body. * Throughout the body, red blood cells deliver oxygen to cells and remove carbon dioxide. * Veins carry oxygen-poor blood back to the heart. * The heart pumps blood back to the lungs to eliminate carbon dioxide and absorb oxygen. * Red blood cells move through the lungs, taking in oxygen and exchanging it for carbon dioxide.
+                                </dg-summary>
+                                <dg-longdesc>
+                                    Systems in Sync. The circulatory and respiratory systems work together to transport oxygen-rich blood through the body. A diagram shows a cross-section of a heart between two lungs. Red arrows show the path of oxygen-rich blood cells. Blue arrows show the path of oxygen-poor blood. * Oxygen-rich blood cells travel to the heart from the lungs. * The heart pumps enriched blood cells. They travel through the arteries to the body. * Throughout the body, red blood cells deliver oxygen to cells and remove carbon dioxide. * Veins carry oxygen-poor blood back to the heart. * The heart pumps blood back to the lungs to eliminate carbon dioxide and absorb oxygen. * Red blood cells move through the lungs, taking in oxygen and exchanging it for carbon dioxide.
+                                </dg-longdesc>
+                                <dg-tactiledesc>
+                                    The first image contains the diagram and the key. The second image includes all of the numbered text that is part of the original image.
+                                    <dg-tour source="images/heart-lung-tg.jpg">
 
-                            </dg-tour>
-                        </dg-tactiledesc>
-                    </div>
-                    <section>
-                        <h2>Making This Image Accessible</h2>
-                        <p>
-                            This image can be made accessible with an image description or by using a tactile graphic. The choice of modality varies depending on factors such as the information to be conveyed, grade level, student knowledge and experience, and the image itself.
-                        </p>
-                        <p>
-                            Written image descriptions are widely used for images that illustrate a process or simple concept. Tactile images are used for images or diagrams where the physical relationships between elements of the image are important.
-                        </p>
-                        <p>
-                            How the image description is displayed depends on the reading tool being used. In most mainstream reading tools, the description will not be displayed at all, but in tools designed for accessibility (or mainstream tools with accessibility features enabled) the description could be displayed below the image, voiced as part of the content, or both.
-                        </p>
-                        <p>
-                            This is an example of an image in which text is embedded in the image and is not accessible. The content needs to be extracted from the image and included in the description.
-                        </p>
-                    </section>
+                                    </dg-tour>
+                                    <dg-tour source="images/heart-lung-tg-p2.jpg">
 
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-</body>
+                                    </dg-tour>
+                                </dg-tactiledesc>
+                            </div>
+                            <section>
+                                <h2>Making This Image Accessible</h2>
+                                <p>
+                                    This image can be made accessible with an image description or by using a tactile graphic. The choice of modality varies depending on factors such as the information to be conveyed, grade level, student knowledge and experience, and the image itself.
+                                </p>
+                                <p>
+                                    Written image descriptions are widely used for images that illustrate a process or simple concept. Tactile images are used for images or diagrams where the physical relationships between elements of the image are important.
+                                </p>
+                                <p>
+                                    How the image description is displayed depends on the reading tool being used. In most mainstream reading tools, the description will not be displayed at all, but in tools designed for accessibility (or mainstream tools with accessibility features enabled) the description could be displayed below the image, voiced as part of the content, or both.
+                                </p>
+                                <p>
+                                    This is an example of an image in which text is embedded in the image and is not accessible. The content needs to be extracted from the image and included in the description.
+                                </p>
+                            </section>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
 </html>
