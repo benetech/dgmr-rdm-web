@@ -14,3 +14,4 @@ The pages created can be viewed at the following URLs:
 - http://benetech.github.io/dgmr-rdm-web/Resources.html
 - http://benetech.github.io/dgmr-rdm-web/sourcefiles.html
 
+**Note: The functionality in the above pages will work only on a Chrome browser.**
