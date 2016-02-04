@@ -1,10 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <!--The below tag ensures that the web application runs on full-screen mode-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!--Sets the style of the status bar for the web application-->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <!--Screen size and zoom level specifications-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
+        <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.2.3.2/lib/polymer/polymer.html">
+        <link rel="import" href="webcomponents/custom.html">
+        <title>Glossary</title>
+    </head>
+    <body>
+        <h1>Glossary</h1>
+        <h4>3D Printing</h4>
+        <p>An additive process used to produce three-dimensional objects from digital models. 3D printing is an additive process.</p>
+        <h4 id="alt">Alternative text (alt text)</h4>
+        <p>Text that is added to non-text content (via <a href="#HTML">HTML</a> markup), usually images, which can be read by <a href="#screenreader">screen readers</a> so that visually impaired or blind users are able to understand the function of the non-text content. The alt attribute has no fixed character limit, but recommendations suggest a limit of 150 characters to avoid potential issues with screen readers. In situations where more text is required, the <a href="#longdesc">long description</a> attribute should be used.</p>
+        <h4 id="AT">Assistive technology (AT)</h4>
+        <p>Any kind of software or hardware that enables users with disabilities to perform a particular task. Examples include <a href="#screenreader">screen readers</a> and screen magnifiers.</p>
+        <h4>BANA (Braille Authority of North America)</h4>
+        <p><a href="http://www.brailleauthority.org/">BANA</a> establishes the braille codes and rules used for producing braille in the United States and Canada. The BANA website contains links to guidebooks for each of the current braille codes and extensive information related to the production of braille and tactile materials used by the blind or visually impaired.</p>
+        <h4>Born Accessible</h4>
+        <p>A descriptive term for a technology product or application designed and developed from the very beginning to be accessible.</p>
+        <h4>Born digital</h4>
+        <p>A descriptive term for any resource that is created and available only in digital format. Types of born-digital material include digital photographs, an eBook with no printed version, video games, or digital music.</p>
+        <h4>ChromeVox</h4>
+        <p>A <a href="#screenreader">screen reader</a> <a href="http://www.chromevox.com/">extension</a> for the Chrome browser.</p>
+        <h4>DAISY (Digital Accessible Information System)</h4>
+        <p><a href="http://www.daisy.org">DAISY Consortium</a> oversees the DAISY standards. The accessibility requirements of the DAISY standards were incorporated into the non-proprietary <a href="#EPUB3">EPUB 3</a> standard in 2013.</p>
+        <h4>Decorative image</h4>
+        <p>An image that does not add information or meaning to content and is used for visual interest only. As such, decorative images are exempt from certain accessibility guidelines, such as <a href="#alt">alternative text</a>. They should be coded appropriately to be invisible to <a href="#AT">assistive technology</a>.</p>
+        <h4>describedat</h4>
+        <p>The ARIA-describedat attribute provides a mechanism for attaching descriptions to images, tables, and other complex structures, without requiring the description to be embedded within the current page.</p>
+        <h4>DIAGRAM (Digital Image And Graphic Resources for Accessible Materials)</h4>
+        <p>The <a href="http://diagramcenter.org">DIAGRAM Center</a> is a research and development center whose goal is to dramatically change the way image and graphic content for Accessible Electronic Media (AEM) is produced and accessed, so that students with print disabilities are provided equal access to the general education curriculum.</p>
+        <h4>EPUB 3</h4>
+        <p>The <a href="http://www.idpf.org/epub/30/spec/epub30-overview.html">EPUB®</a> specification is a non-proprietary distribution and interchange format standard for digital publications and documents. EPUB defines a means of representing, packaging, and encoding structured and semantically enhanced Web content — including HTML5, CSS, SVG, images, and other resources — for distribution in a single-file format.</p>
+        <h4>Haptic</h4>
+        <p>Haptic technology uses tactile feedback, such as motion or vibration, to provide information to the user.</p>
+        <h4>High resolution graphics embosser</h4>
+        <p>A braille embosser designed specifically to produce detailed tactile graphics as well as standard braille. It is capable of embossing smaller dots that are closer together than standard braille embossers, which renders very readable tactile images.</p>
+        <h4 id="HTML">HTML (Hypertext Markup Language)</h4>
+        <p>The underlying language used to create web pages. To ensure a web page is accessible, the HTML should be written according to certain conventions. Reference the World Wide Web Consortium (<a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">WC3</a>) to find techniques for authoring accessible HTML content.</p>
+        <h4 id="JAWS">JAWS (Job Access With Speech)</h4>
+        <p>One of the most commonly used commercial <a href="#screenreader">screen readers</a>—particularly in the US.</p>
+        <h4>Long description</h4>
+        <p>An <a href="#HTML">HTML</a> attribute (longdesc) that enables a longer piece of <a href="#alt">alternative text</a> to be added to a non-text element. Longdesc allows more space than the alt attribute.</p>
+        <h4>MathML (Mathematical Markup Language)</h4>
+        <p>A form of XML used to describe the content and structure of mathematical notation on web pages and other documents. Using MathML enables complex equations to be more easily accessible to <a href="#screenreader">screen readers</a>, and can help in the creation of <a href="#alt">alternative text</a>.</p>
+        <h4>Microcapsule process for tactile graphics</h4>
+        <p>A process in which, an image is printed on capsule paper with carbon-based ink or carbon toner from a laser printer or copier. The printed paper is processed with a device called a fuser that exposes the image to infrared light. Printed areas rise to create a tactile graphic.</p>
+        <h4 id="NVDA">NVDA (NonVisual Desktop Access)</h4>
+        <p>A <a href="http://www.nvaccess.org/">free</a> <a href="#screenreader">screen reader</a> for Windows. NVDA development is supported by NV Access, a not-for-profit organization supported by corporate grants and individual donations.</p>
+        <h4>Refreshable Braille Display</h4>
+        <p>A device that can dynamically display braille translated from an electronic file. Displays range from 12 to 80 characters or cells. A braille reader is able to access educational materials from a variety of electronic file formats.</p>
+        <h4>Scalable Vector Graphic (SVG)</h4>
+        <p>A system for defining images using vectors. The image may be enlarged or reduced without affecting quality.</p>
+        <h4 id="screenreader">Screen reader</h4>
+        <p>A type of <a href="#AT">assistive technology</a> that translates what is displayed on a visual user interface into synthesised speech or braille output. Screen readers are commonly used by visually impaired, blind, and dyslexic users, as well as people with learning disabilities. Common screen readers include <a href="#JAWS">JAWS</a>, <a href="#NVDA">NVDA</a>, <a href="#WindowEyes">WindowEyes</a>, and <a href="#VoiceOver">VoiceOver</a>.</p>
+        <h4>Sonification</h4>
+        <p>The use of sound frequencies to interpret an image. An example is a sine wave. The frequency of a tone rises and falls according to the amplitude of the sine wave.</p>
+        <h4>Tactile Graphics</h4>
+        <p>Print images are represented in tactile form for readers who are blind or visually impaired. Tactile graphics are used to convey non-textual information such as maps, graphs, and diagrams. They are produced using a braille embosser, microcapsule paper, or hand produced by collage and/or tooling.</p>
+        <h4>TalkBack</h4>
+        <p>A built-in <a href="#screenreader">screen reader</a>/accessibility tool for Android devices.</p>
+        <h4>Text-to-Speech</h4>
+        <p>A general term for technology that converts text to spoken words. This technology is used by screen readers.</p>
+        <h4 id="VoiceOver">VoiceOver</h4>
+        <p>A built-in <a href="#screenreader">screen reader</a>/accessibility tool for Mac and iOS devices.</p>
+        <h4>WAI-ARIA</h4>
+        <p>A <a href="http://www.w3.org/WAI/intro/aria.php">technical specification</a> developed by the World Wide Web Consortium (<a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">W3C</a>) to increase the accessibility of web pages, particularly those that feature rich interactive content and user interface components.</p>
+        <h4 id="WindowEyes">Window-Eyes</h4>
+        <p>A commercial <a href="#screenreader">screen reader</a> for Windows.</p>
+    </body>
 </html>

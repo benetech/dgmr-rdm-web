@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sample 5: Angles on a Survey Map</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <!--The below tag ensures that the web application runs on full-screen mode-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!--Sets the style of the status bar for the web application-->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <!--Screen size and zoom level specifications-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
+        <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.2.3.2/lib/polymer/polymer.html">
+        <link rel="import" href="webcomponents/custom.html">
+        <title>Sample 5: Angles on a Survey Map</title>
+    </head>
+    <body>
+        <img src="images/survey.jpg" alt="bar chart"/>
+        <div>
+            <div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <dg-btn-summary>Show/Hide Short Description</dg-btn-summary>
+                        <dg-btn-longdesc>Show/Hide Long Description</dg-btn-longdesc>
+                        <dg-btn-tactiledesc>Show/Hide Tour of Tactile Description</dg-btn-tactiledesc>
+                        <td>
+                            <div>
+                                <dg-summary>
+                                    The image depicts two surveyors measuring the angles between themselves and a tree..
+                                </dg-summary>
+                                <dg-longdesc>
 
-</body>
+                                    <dg-simplifieddesc> Two surveyors, A and P, stand some distance apart on the south bank of a river, looking at a tree, T, that is on the north bank of the river. Points A, P, and T form a triangle. At points A and P, there are two parallel sight lines pointing north and forming angles outside of the triangle. At point P, angle TPA is 53 degrees. The adjacent angle between PT and the northern sight line is 37 degrees. At point A, angle TAP is not labeled, and the adjacent angle formed between AT and that northern sight line is 32 degrees.
+                                </dg-longdesc>
+                                <dg-tactiledesc>
+                                    <img src="images/barchart.jpg">
+                                </dg-tactiledesc>
+                            </div>
+                            <section>
+                                <h2>Making This Image Accessible</h2>
+                                <p>
+                                    This image can be made accessible with image descriptions or by creating a tactile graphic that would support different learning styles and braille readers. The choice of modality varies depending on factors such as the information to be conveyed, grade level, student knowledge and experience, and the image itself. In this example, it is necessary to provide both a short description and a long description. Since there are several equally effective ways to describe the image, we have provided two short descriptions and two long descriptions.
+                                </p>
+                                <p>
+                                    How an image description is displayed depends on the reading tool being used. In most mainstream reading tools, the description will not be displayed at all, but in tools designed for accessibility (or mainstream tools with accessible features enabled), the description could be displayed below the image, voiced as part of the content, or both.
+                                </p>
+                                <p>
+                                    This is an example of an image in which text is embedded in the image and is not accessible. The content needs to be extracted from the image and included in the description.
+                                </p>
+                            </section>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
 </html>
