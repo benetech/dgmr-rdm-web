@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../Misc/jquery-1.12.0.min.js"></script>
+    <script src="../Misc/webcomponents.min.js"></script>
+    <script src="../Misc/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Styles/bootstrap.min.css">
+    <link rel="import" href="polymer.html">
+</head>
+<body>
+<dom-module id="dg-btn-longdesc">
+    <style>
+        :host {
+            display: inline;
+            margin-bottom: 1em;
+            margin-right: 0.5em;
+            font-size: 14px;
+            font-weight: normal;
+            text-decoration:none;
+            cursor:pointer;
+            text-align: center;
+            color: buttontext;
+            padding: 0.2em;
+            border: 2px outset buttonface;
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            background-color: buttonface;
+            -moz-border-radius:3px;
+            -webkit-border-radius:3px;
+            border-radius:3px;
+        }
+    </style>
+    <template>
+        <content></content>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-btn-longdesc",
+            hostAttributes: {
+                tabindex: 0,
+                role: "button",
+                "aria-pressed": "false"
+            },
+            listeners: {
+                "click": "handleClick",
+                "keydown" : "handleKeyDown",
+                "keypress" : "handleKeyPress"
+            },
+            toggleLongDesc: function(e) {
+                if($(this).attr("aria-pressed") == "true"){
+                    $(this).attr("aria-pressed", "false");
+                }
+                else{
+                    $(this).attr("aria-pressed", "true");
+                    $("dg-btn-simpledesc [").attr("aria-pressed", "false");
+                    $("dg-btn-summary").attr("aria-pressed", "false");
+                    $("dg-btn-tactiledesc").attr("aria-pressed", "false");
+                }
+                $('dg-summary').attr('style', 'display: none;');
+                $('dg-simpledesc').attr('style', 'display: none;');
+                $('dg-tactiledesc').attr('style', 'display: none;');
+                var el = $('dg-longdesc');
+                if (el.attr('style') == undefined) {
+                    el.attr('style', 'display: none;');
+                }
+                else {
+                    el.removeAttr('style');
+                    $('#long_desc').focus();
+                }
+            },
+            handleKeyPress: function(e) {
+                if (e.altKey || e.ctrlKey || e.shiftKey) {
+                    return true;
+                }
+                switch (e.keyCode) {
+                    case 27:
+                    case 13:
+                    case 37:
+                    case 38:
+                    case 39:
+                    case 40: {
+                        e.stopPropagation();
+                        return false;
+                    }
+                }
+                return true;
+            },
+            handleKeyDown: function(e) {
+                switch (e.keyCode) {
+                    case 13:
+                    case 32: {
+                        this.toggleLongDesc();
+                        e.stopPropagation();
+                        return false;
+                        break;
+                    }
+                }
+                return true;
+            },
+            handleClick: function(e) {
+                this.toggleLongDesc();
+                e.stopPropagation();
+                return false;
+            }
+        });
+    </script>
+</dom-module>
+<dom-module id="dg-btn-summary">
+    <style>
+        :host {
+            display: inline;
+            margin-bottom: 1em;
+            margin-right: 0.5em;
+            font-size: 14px;
+            font-weight: normal;
+            text-decoration:none;
+            cursor:pointer;
+            text-align: center;
+            color: buttontext;
+            padding: 0.2em;
+            border: 2px outset buttonface;
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            background-color: buttonface;
+            -moz-border-radius:3px;
+            -webkit-border-radius:3px;
+            border-radius:3px;
+        }
+    </style>
+    <template>
+        <content></content>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-btn-summary",
+            hostAttributes: {
+                tabindex: 0,
+                role: "button",
+                "aria-pressed": "false"
+            },
+            listeners: {
+                "click": "handleClick",
+                "keydown" : "handleKeyDown",
+                "keypress" : "handleKeyPress"
+            },
+            toggleShortDesc: function(e) {
+                if($(this).attr("aria-pressed") == "true"){
+                    $(this).attr("aria-pressed", "false");
+                }
+                else{
+                    $(this).attr("aria-pressed", "true");
+                    $("dg-btn-simpledesc").attr("aria-pressed", "false");
+                    $("dg-btn-longdesc").attr("aria-pressed", "false");
+                    $("dg-btn-tactiledesc").attr("aria-pressed", "false");
+                }
+                $('dg-longdesc').attr('style', 'display: none;');
+                $('dg-tactiledesc').attr('style', 'display: none;');
+                $('dg-simpledesc').attr('style', 'display: none;');
+                var el = $('dg-summary');
+                if (el.attr('style') == undefined) {
+                    el.attr('style', 'display: none;');
+                }
+                else {
+                    el.removeAttr('style');
+                    $('#short_desc').focus();
+                }
+            },
+            handleKeyPress: function(e) {
+                if (e.altKey || e.ctrlKey || e.shiftKey) {
+                    return true;
+                }
+                switch (e.keyCode) {
+                    case 27:
+                    case 13:
+                    case 37:
+                    case 38:
+                    case 39:
+                    case 40: {
+                        e.stopPropagation();
+                        return false;
+                    }
+                }
+                return true;
+            },
+            handleKeyDown: function(e) {
+                switch (e.keyCode) {
+                    case 13:
+                    case 32: {
+                        this.toggleShortDesc();
+                        e.stopPropagation();
+                        return false;
+                        break;
+                    }
+                }
+                return true;
+            },
+            handleClick: function(e) {
+                this.toggleShortDesc();
+                e.stopPropagation();
+                return false;
+            }
+        });
+    </script>
+</dom-module>
+<dom-module id="dg-btn-tactiledesc">
+    <style>
+        :host {
+            display: inline;
+            margin-bottom: 1em;
+            margin-right: 0.5em;
+            font-size: 14px;
+            font-weight: normal;
+            text-decoration:none;
+            cursor:pointer;
+            text-align: center;
+            color: buttontext;
+            padding: 0.2em;
+            border: 2px outset buttonface;
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            background-color: buttonface;
+            -moz-border-radius:3px;
+            -webkit-border-radius:3px;
+            border-radius:3px;
+        }
+    </style>
+    <template>
+        <content></content>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-btn-tactiledesc",
+            hostAttributes: {
+                tabindex: 0,
+                role: "button",
+                "aria-pressed": "false"
+            },
+            listeners: {
+                "click": "handleClick",
+                "keydown" : "handleKeyDown",
+                "keypress" : "handleKeyPress"
+            },
+            toggleTactileDesc: function(e) {
+                if($(this).attr("aria-pressed") == "true"){
+                    $(this).attr("aria-pressed", "false");
+                }
+                else{
+                    $(this).attr("aria-pressed", "true");
+                    $("dg-btn-simpledesc").attr("aria-pressed", "false");
+                    $("dg-btn-longdesc").attr("aria-pressed", "false");
+                    $("dg-btn-summary").attr("aria-pressed", "false");
+                }
+                $('dg-summary').attr('style', 'display: none;');
+                $('dg-longdesc').attr('style', 'display: none;');
+                $('dg-simpledesc').attr('style', 'display: none;');
+                var el = $('dg-tactiledesc');
+                if (el.attr('style') == undefined) {
+                    el.attr('style', 'display: none;');
+                }
+                else {
+                    el.removeAttr('style');
+                    $('#tactile_desc').focus();
+                }
+            },
+            handleKeyPress: function(e) {
+                if (e.altKey || e.ctrlKey || e.shiftKey) {
+                    return true;
+                }
+                switch (e.keyCode) {
+                    case 27:
+                    case 13:
+                    case 37:
+                    case 38:
+                    case 39:
+                    case 40: {
+                        e.stopPropagation();
+                        return false;
+                    }
+                }
+                return true;
+            },
+            handleKeyDown: function(e) {
+                switch (e.keyCode) {
+                    case 13:
+                    case 32: {
+                        this.toggleTactileDesc();
+                        e.stopPropagation();
+                        return false;
+                        break;
+                    }
+                }
+                return true;
+            },
+            handleClick: function(e) {
+                this.toggleTactileDesc();
+                e.stopPropagation();
+                return false;
+            }
+        });
+    </script>
+</dom-module>
+<dom-module id="dg-btn-simpledesc">
+    <style>
+        :host {
+            display: inline;
+            margin-bottom: 1em;
+            margin-right: 0.5em;
+            font-size: 14px;
+            font-weight: normal;
+            text-decoration:none;
+            cursor:pointer;
+            text-align: center;
+            color: buttontext;
+            padding: 0.2em;
+            border: 2px outset buttonface;
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            background-color: buttonface;
+            -moz-border-radius:3px;
+            -webkit-border-radius:3px;
+            border-radius:3px;
+        }
+    </style>
+    <template>
+        <content></content>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-btn-simpledesc",
+            hostAttributes: {
+                tabindex: 0,
+                role: "button",
+                "aria-pressed": "false"
+            },
+            listeners: {
+                "click": "handleClick",
+                "keydown" : "handleKeyDown",
+                "keypress" : "handleKeyPress"
+            },
+            toggleSimpleDesc: function(e) {
+                if($(this).attr("aria-pressed") == "true"){
+                    $(this).attr("aria-pressed", "false");
+                }
+                else{
+                    $(this).attr("aria-pressed", "true");
+                    $("dg-btn-tactiledesc").attr("aria-pressed", "false");
+                    $("dg-btn-longdesc").attr("aria-pressed", "false");
+                    $("dg-btn-summary").attr("aria-pressed", "false");
+                }
+                $('dg-summary').attr('style', 'display: none;');
+                $('dg-tactiledesc').attr('style', 'display: none;');
+                $('dg-longdesc').attr('style', 'display: none;');
+                var el = $('dg-simpledesc');
+                if (el.attr('style') == undefined) {
+                    el.attr('style', 'display: none;');
+                }
+                else {
+                    el.removeAttr('style');
+                    $('#simple_desc').focus();
+                }
+            },
+            handleKeyPress: function(e) {
+                if (e.altKey || e.ctrlKey || e.shiftKey) {
+                    return true;
+                }
+                switch (e.keyCode) {
+                    case 27:
+                    case 13:
+                    case 37:
+                    case 38:
+                    case 39:
+                    case 40: {
+                        e.stopPropagation();
+                        return false;
+                    }
+                }
+                return true;
+            },
+            handleKeyDown: function(e) {
+                switch (e.keyCode) {
+                    case 13:
+                    case 32: {
+                        this.toggleSimpleDesc();
+                        e.stopPropagation();
+                        return false;
+                        break;
+                    }
+                }
+                return true;
+            },
+            handleClick: function(e) {
+                this.toggleSimpleDesc();
+                e.stopPropagation();
+                return false;
+            }
+        });
+    </script>
+</dom-module>
+
+<dom-module id="dg-longdesc">
+    <style>
+        :host {
+            display: block;
+            background-color: #ffffff;
+            color: #007ba8;
+            width: 99%;
+            padding: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #007ba8;
+            margin-top: 1em;
+            font-style: normal;
+            font-size: 14px;
+        }
+    </style>
+    <template>
+        <div tabindex="0" id="long_desc" role="region" aria-labelledby="long_desc_heading">
+            <h3 id="long_desc_heading">
+                Long Description:
+            </h3>
+            <content></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-longdesc",
+            hostAttributes: {
+                style: 'display: none;'
+            },
+        });
+    </script>
+</dom-module>
+<dom-module id="dg-simpledesc">
+    <style>
+        :host {
+            display: block;
+            background-color: #ffffff;
+            color: #007ba8;
+            width: 99%;
+            padding: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #007ba8;
+            margin-top: 1em;
+            font-style: normal;
+            font-size: 14px;
+        }
+    </style>
+    <template>
+        <div tabindex="0" id="simple_desc" role="region" aria-labelledby="simple_desc_heading">
+            <h3 id="simple_desc_heading">
+                Simplified Description:
+            </h3>
+            <content></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-simpledesc",
+            hostAttributes: {
+                style: 'display: none;'
+            },
+        });
+    </script>
+</dom-module>
+<dom-module id="dg-summary">
+    <style is="custom-style">
+        :host {
+            display: block;
+            background-color: #ffffff;
+            color: #007ba8;
+            width: 99%;
+            padding: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #007ba8;
+            margin-top: 1em;
+            font-style: normal;
+            font-size: 14px;
+        }
+    </style>
+    <template>
+        <div tabindex="0" id="short_desc" role="region" aria-labelledby="short_desc_heading">
+            <h3 id="short_desc_heading">
+                Short Description
+            </h3>
+            <content></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-summary",
+            hostAttributes: {
+                style: 'display: none;'
+            }
+        });
+    </script>
+</dom-module>
+<dom-module id="dg-tactiledesc">
+    <style is="custom-style">
+        :host {
+            display: block;
+            background-color: #ffffff;
+            color: #007ba8;
+            width: 99%;
+            padding: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #007ba8;
+            margin-top: 1em;
+            font-style: normal;
+            font-size: 14px;
+        }
+    </style>
+    <template>
+        <div id="tactile_desc" tabindex="0">
+            <content></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-tactiledesc",
+            hostAttributes: {
+                style: 'display: none;'
+            }
+        });
+    </script>
+</dom-module>
+<dom-module id="dg-tour">
+    <template>
+        <div>
+            <p><strong>Tour:</strong></p>
+            <p>
+                <content></content>
+            </p>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "dg-tour",
+            properties: {
+                source: String
+            }
+        });
+    </script>
+</dom-module>
+</body>
+</html>
