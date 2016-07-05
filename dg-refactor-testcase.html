@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!--The below tag ensures that the web application runs on full-screen mode-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!--Sets the style of the status bar for the web application-->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <!--Screen size and zoom level specifications-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="import" href="webcomponents/custom.html">
+        <title>Sample 4: Relational Diagrams</title>
+    </head>
+    <body>
+        <h1> Diagrammer focus refactor (LAB-67) test cases.</h1>
+        <nav>
+            <h2> These buttons control the entire page. Pressing them shows all descriptions of that type on the page</h2>
+            <dg-btn-summary dg-name="*"> Press me to toggle all short descriptions </dg-btn-summary>
+            <dg-btn-longdesc dg-name="*"> Press me to toggle all long descriptions </dg-btn-longdesc>
+            <dg-btn-simpledesc dg-name="*"> Press me to toggle all simplified descriptions </dg-btn-simpledesc>
+        </nav>
+        <h2>Radial/Web Diagrams</h2>
+        <img src="images/relational1.png" alt="Radial/Web diagrams"/>
+        <div>
+            <div>
+                <table role="presentation">
+                    <tbody>
+                    <tr>
+                        <dg-btn-summary dg-name="web">Show/Hide Short Description</dg-btn-summary>
+                        <dg-btn-longdesc dg-name="web">Show/Hide long Description</dg-btn-summary>
+                        <td>
+                            <div>
+                                <dg-summary dg-name="web">
+                                    A web diagram has a center circle and five smaller circles connected to it. The center circle is labeled Scientific Methods. One connected circle is labeled Observation. The other four circles are labeled A, B, C, and D.
+                                </dg-summary>
+                                <dg-longdesc dg-name="web">
+                                    Hello: I'm a long description"
+                                </dg-longdesc>
+                            </div>
+                            <section>
+                                <h2>Making This Image Accessible</h2>
+                                <p>
+                                    This image can be made accessible with an image description. Radial and Web diagrams are often used to show relationships between concepts and ideas. Simple radial diagrams like the one shown above, can be described in a few sentences. Complex radial diagrams require converting information into an outline.
+                                </p>
+                            </section>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h2 id="hierarchy">Hierarchy/Tree Diagrams</h2>
+        <img src="images/relational2.png" alt="Radial/Web diagrams"/>
+        <div>
+            <div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <dg-btn-summary dg-name="tree">Show/Hide Short Description</dg-btn-summary>
+                        <dg-btn-longdesc dg-name="tree">Show/Hide Long Description</dg-btn-longdesc>
+                        <td>
+                            <div>
+                                <dg-summary dg-name="tree">
+                                    This should be the default approach, especially for lower grade levels. A tree diagram shows different branches of science. There are three levels, from top to bottom. The highest level is Natural Science. The next level has Physical Science, Earth and Space Science, and Life Science. Physical Science includes Physics and Chemistry. Earth and Space Science includes Geology, Meteorology, Astronomy, and Oceanography. Life Science includes Botany, Ecology, Zoology, and Genetics.
+                                </dg-summary>
+                                <dg-longdesc dg-name="tree">
+                                    This is the most complex approach and should only be used for academic, college-level, or professional texts. A tree diagram shows different branches of science. There are three levels, from top to bottom. * Natural Science. * Physical Science. * Physics and Chemistry. Earth and Space Science. *Geology, Meteorology, Astronomy, and Oceanography. Life Science. *Botany, Ecology, Zoology, and Genetics.
+                                </dg-longdesc>
+                            </div>
+                            <section>
+                                <h2>Making This Image Accessible</h2>
+                                <p>
+                                    This image can be made accessible with an image description. Hierarchy and Tree diagrams are often used to show relationships between types of activities, ideas, or responsibilities, such as roles in an organization. These diagrams can be all text or a combination of text and illustrations. Since the layers of these diagrams can become complex, it is important to know the purpose of the diagram and the intended audience. For this reason, three different descriptions for three different audiences are provided for this diagram.
+                                </p>
+                            </section>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

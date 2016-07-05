@@ -51,25 +51,43 @@
                 "keypress" : "handleKeyPress"
             },
             toggleLongDesc: function(e) {
+                var curName = $(this).attr("dg-name");
+                var $context;
+                var handleFocus = true;
+                if(curName === "*"){
+                    //All elements on the page.
+                    handleFocus=false;
+                    //Don't use document, because dilter doesn't actually do what you'd expect.
+                    //Instead, filter by all elements with dg-name
+                    $context = $("[dg-name]");
+                }
+                else 
+                {
+                    $context = $("[dg-name=" + curName + "]");
+                }
+                var hideLongdesc;
                 if($(this).attr("aria-pressed") == "true"){
-                    $(this).attr("aria-pressed", "false");
+                    $context.filter("dg-btn-longdesc").attr("aria-pressed", "false");
+                    hideLongdesc = true;
                 }
                 else{
-                    $(this).attr("aria-pressed", "true");
-                    $("dg-btn-simpledesc [").attr("aria-pressed", "false");
-                    $("dg-btn-summary").attr("aria-pressed", "false");
-                    $("dg-btn-tactiledesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-longdesc").attr("aria-pressed", "true");
+                    hideLongdesc = false;
+                    $context.filter("dg-btn-simpledesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-summary").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-tactiledesc").attr("aria-pressed", "false");
                 }
-                $('dg-summary').attr('style', 'display: none;');
-                $('dg-simpledesc').attr('style', 'display: none;');
-                $('dg-tactiledesc').attr('style', 'display: none;');
-                var el = $('dg-longdesc');
-                if (el.attr('style') == undefined) {
+                $context.filter('dg-summary').attr('style', 'display: none;');
+                $context.filter('dg-simpledesc').attr('style', 'display: none;');
+                $context.filter('dg-tactiledesc').attr('style', 'display: none;');
+                var el = $context.filter('dg-longdesc');
+                if (hideLongdesc) {
                     el.attr('style', 'display: none;');
                 }
                 else {
                     el.removeAttr('style');
-                    $('#long_desc').focus();
+                    if(handleFocus)
+                        el.find('div').focus();
                 }
             },
             handleKeyPress: function(e) {
