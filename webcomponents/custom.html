@@ -87,7 +87,7 @@
                 else {
                     el.removeAttr('style');
                     if(handleFocus)
-                        el.find('div').focus();
+                        el.find('#long_desc_heading').focus();
                 }
             },
             handleKeyPress: function(e) {
@@ -445,8 +445,8 @@
         }
     </style>
     <template>
-        <div tabindex="0" id="long_desc" role="region" aria-labelledby="long_desc_heading">
-            <h3 id="long_desc_heading">
+        <div id="long_desc" role="region" aria-labelledby="long_desc_heading">
+            <h3 tabindex="0" id="long_desc_heading">
                 Long Description:
             </h3>
             <content></content>
