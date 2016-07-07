@@ -87,7 +87,7 @@
                 else {
                     el.removeAttr('style');
                     if(handleFocus)
-                        el.find('#long_desc_heading').focus();
+                        el.find("#long_desc").focus();
                 }
             },
             handleKeyPress: function(e) {
@@ -169,25 +169,43 @@
                 "keypress" : "handleKeyPress"
             },
             toggleShortDesc: function(e) {
+                var curName = $(this).attr("dg-name");
+                var $context;
+                var handleFocus = true;
+                if(curName === "*"){
+                    //All elements on the page.
+                    handleFocus=false;
+                    //Don't use document, because filter doesn't actually do what you'd expect.
+                    //Instead, filter by all elements with dg-name
+                    $context = $("[dg-name]");
+                }
+                else 
+                {
+                    $context = $("[dg-name=" + curName + "]");
+                }
+                var hideSummary;
                 if($(this).attr("aria-pressed") == "true"){
-                    $(this).attr("aria-pressed", "false");
+                    $context.filter("dg-btn-summary").attr("aria-pressed", "false");
+                    hideSummary = true;
                 }
                 else{
-                    $(this).attr("aria-pressed", "true");
-                    $("dg-btn-simpledesc").attr("aria-pressed", "false");
-                    $("dg-btn-longdesc").attr("aria-pressed", "false");
-                    $("dg-btn-tactiledesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-summary").attr("aria-pressed", "true");
+                    hideSummary = false;
+                    $context.filter("dg-btn-simpledesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-longdesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-tactiledesc").attr("aria-pressed", "false");
                 }
-                $('dg-longdesc').attr('style', 'display: none;');
-                $('dg-tactiledesc').attr('style', 'display: none;');
-                $('dg-simpledesc').attr('style', 'display: none;');
-                var el = $('dg-summary');
-                if (el.attr('style') == undefined) {
+                $context.filter('dg-longdesc').attr('style', 'display: none;');
+                $context.filter('dg-simpledesc').attr('style', 'display: none;');
+                $context.filter('dg-tactiledesc').attr('style', 'display: none;');
+                var el = $context.filter('dg-summary');
+                if (hideSummary) {
                     el.attr('style', 'display: none;');
                 }
                 else {
                     el.removeAttr('style');
-                    $('#short_desc').focus();
+                    if(handleFocus)
+                        el.find("#summary_desc").focus();
                 }
             },
             handleKeyPress: function(e) {
@@ -269,25 +287,43 @@
                 "keypress" : "handleKeyPress"
             },
             toggleTactileDesc: function(e) {
+                var curName = $(this).attr("dg-name");
+                var $context;
+                var handleFocus = true;
+                if(curName === "*"){
+                    //All elements on the page.
+                    handleFocus=false;
+                    //Don't use document, because filter doesn't actually do what you'd expect.
+                    //Instead, filter by all elements with dg-name
+                    $context = $("[dg-name]");
+                }
+                else 
+                {
+                    $context = $("[dg-name=" + curName + "]");
+                }
+                var hideTactiledesc;
                 if($(this).attr("aria-pressed") == "true"){
-                    $(this).attr("aria-pressed", "false");
+                    $context.filter("dg-btn-tactiledesc").attr("aria-pressed", "false");
+                    hideTactiledesc = true;
                 }
                 else{
-                    $(this).attr("aria-pressed", "true");
-                    $("dg-btn-simpledesc").attr("aria-pressed", "false");
-                    $("dg-btn-longdesc").attr("aria-pressed", "false");
-                    $("dg-btn-summary").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-tactiledesc").attr("aria-pressed", "true");
+                    hideTactiledesc = false;
+                    $context.filter("dg-btn-simpledesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-longdesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-summary").attr("aria-pressed", "false");
                 }
-                $('dg-summary').attr('style', 'display: none;');
-                $('dg-longdesc').attr('style', 'display: none;');
-                $('dg-simpledesc').attr('style', 'display: none;');
-                var el = $('dg-tactiledesc');
-                if (el.attr('style') == undefined) {
+                $context.filter('dg-longdesc').attr('style', 'display: none;');
+                $context.filter('dg-simpledesc').attr('style', 'display: none;');
+                $context.filter('dg-summary').attr('style', 'display: none;');
+                var el = $context.filter('dg-tactiledesc');
+                if (hideTactiledesc) {
                     el.attr('style', 'display: none;');
                 }
                 else {
                     el.removeAttr('style');
-                    $('#tactile_desc').focus();
+                    if(handleFocus)
+                        el.find("#tactile_desc").focus();
                 }
             },
             handleKeyPress: function(e) {
@@ -369,25 +405,43 @@
                 "keypress" : "handleKeyPress"
             },
             toggleSimpleDesc: function(e) {
+                var curName = $(this).attr("dg-name");
+                var $context;
+                var handleFocus = true;
+                if(curName === "*"){
+                    //All elements on the page.
+                    handleFocus=false;
+                    //Don't use document, because filter doesn't actually do what you'd expect.
+                    //Instead, filter by all elements with dg-name
+                    $context = $("[dg-name]");
+                }
+                else 
+                {
+                    $context = $("[dg-name=" + curName + "]");
+                }
+                var hideSimpledesc;
                 if($(this).attr("aria-pressed") == "true"){
-                    $(this).attr("aria-pressed", "false");
+                    $context.filter("dg-btn-simpledesc").attr("aria-pressed", "false");
+                    hideSimpledesc = true;
                 }
                 else{
-                    $(this).attr("aria-pressed", "true");
-                    $("dg-btn-tactiledesc").attr("aria-pressed", "false");
-                    $("dg-btn-longdesc").attr("aria-pressed", "false");
-                    $("dg-btn-summary").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-simpledesc").attr("aria-pressed", "true");
+                    hideSimpledesc = false;
+                    $context.filter("dg-btn-tactiledesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-longdesc").attr("aria-pressed", "false");
+                    $context.filter("dg-btn-summary").attr("aria-pressed", "false");
                 }
-                $('dg-summary').attr('style', 'display: none;');
-                $('dg-tactiledesc').attr('style', 'display: none;');
-                $('dg-longdesc').attr('style', 'display: none;');
-                var el = $('dg-simpledesc');
-                if (el.attr('style') == undefined) {
+                $context.filter('dg-longdesc').attr('style', 'display: none;');
+                $context.filter('dg-tactiledesc').attr('style', 'display: none;');
+                $context.filter('dg-summary').attr('style', 'display: none;');
+                var el = $context.filter('dg-simpledesc');
+                if (hideSimpledesc) {
                     el.attr('style', 'display: none;');
                 }
                 else {
                     el.removeAttr('style');
-                    $('#simple_desc').focus();
+                    if(handleFocus)
+                        el.find("#simple_desc").focus();
                 }
             },
             handleKeyPress: function(e) {
@@ -445,10 +499,7 @@
         }
     </style>
     <template>
-        <div id="long_desc" role="region" aria-labelledby="long_desc_heading">
-            <h3 tabindex="0" id="long_desc_heading">
-                Long Description:
-            </h3>
+        <div id="long_desc" role="region" aria-label="Long Description" tabindex="-1">
             <content></content>
         </div>
     </template>
@@ -478,10 +529,7 @@
         }
     </style>
     <template>
-        <div tabindex="0" id="simple_desc" role="region" aria-labelledby="simple_desc_heading">
-            <h3 id="simple_desc_heading">
-                Simplified Description:
-            </h3>
+        <div tabindex="-1" id="simple_desc" role="region" aria-label="simplified description">
             <content></content>
         </div>
     </template>
@@ -511,10 +559,7 @@
         }
     </style>
     <template>
-        <div tabindex="0" id="short_desc" role="region" aria-labelledby="short_desc_heading">
-            <h3 id="short_desc_heading">
-                Short Description
-            </h3>
+        <div tabindex="-1" id="summary_desc" role="region" aria-label="summary">
             <content></content>
         </div>
     </template>
@@ -544,7 +589,7 @@
         }
     </style>
     <template>
-        <div id="tactile_desc" tabindex="0">
+        <div id="tactile_desc" tabindex="-1" role="region" aria-label="tactile description">
             <content></content>
         </div>
     </template>
