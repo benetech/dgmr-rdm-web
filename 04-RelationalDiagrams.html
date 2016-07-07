@@ -12,6 +12,12 @@
         <title>Sample 4: Relational Diagrams</title>
     </head>
     <body>
+        <nav>
+            <h2> These buttons control the entire page. Pressing them shows all descriptions of that type on the page</h2>
+            <dg-btn-summary dg-name="*">Toggle all short descriptions </dg-btn-summary>
+            <dg-btn-longdesc dg-name="*">Toggle all long descriptions </dg-btn-longdesc>
+            <dg-btn-simpledesc dg-name="*">Toggle all simplified descriptions </dg-btn-simpledesc>
+        </nav>
         <h2>Radial/Web Diagrams</h2>
         <img src="images/relational1.png" alt="Radial/Web diagrams"/>
         <div>
@@ -19,10 +25,10 @@
                 <table>
                     <tbody>
                     <tr>
-                        <dg-btn-summary>Show/Hide Short Description</dg-btn-summary>
+                        <dg-btn-summary dg-name="web">Show/Hide Short Description</dg-btn-summary>
                         <td>
                             <div>
-                                <dg-summary>
+                                <dg-summary dg-name="web">
                                     A web diagram has a center circle and five smaller circles connected to it. The center circle is labeled Scientific Methods. One connected circle is labeled Observation. The other four circles are labeled A, B, C, and D.
                                 </dg-summary>
                             </div>
@@ -39,20 +45,20 @@
             </div>
         </div>
         <h2 id="hierarchy">Hierarchy/Tree Diagrams</h2>
-        <img src="images/relational2.png" alt="Radial/Web diagrams"/>
+        <img src="images/relational2.png" alt="A Tree"/>
         <div>
             <div>
                 <table>
                     <tbody>
                     <tr>
-                        <dg-btn-summary>Show/Hide Short Description</dg-btn-summary>
-                        <dg-btn-longdesc>Show/Hide Long Description</dg-btn-longdesc>
+                        <dg-btn-summary dg-name="tree">Show/Hide Short Description</dg-btn-summary>
+                        <dg-btn-longdesc dg-name="tree">Show/Hide Long Description</dg-btn-longdesc>
                         <td>
                             <div>
-                                <dg-summary>
+                                <dg-summary dg-name="tree">
                                     This should be the default approach, especially for lower grade levels. A tree diagram shows different branches of science. There are three levels, from top to bottom. The highest level is Natural Science. The next level has Physical Science, Earth and Space Science, and Life Science. Physical Science includes Physics and Chemistry. Earth and Space Science includes Geology, Meteorology, Astronomy, and Oceanography. Life Science includes Botany, Ecology, Zoology, and Genetics.
                                 </dg-summary>
-                                <dg-longdesc>
+                                <dg-longdesc dg-name="tree">
                                     This is the most complex approach and should only be used for academic, college-level, or professional texts. A tree diagram shows different branches of science. There are three levels, from top to bottom. * Natural Science. * Physical Science. * Physics and Chemistry. Earth and Space Science. *Geology, Meteorology, Astronomy, and Oceanography. Life Science. *Botany, Ecology, Zoology, and Genetics.
                                 </dg-longdesc>
                             </div>
