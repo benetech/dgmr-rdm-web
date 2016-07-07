@@ -168,7 +168,7 @@
                 "keydown" : "handleKeyDown",
                 "keypress" : "handleKeyPress"
             },
-            toggleShortDesc: function(e) {
+            toggleSummaryDesc: function(e) {
                 var curName = $(this).attr("dg-name");
                 var $context;
                 var handleFocus = true;
@@ -229,7 +229,7 @@
                 switch (e.keyCode) {
                     case 13:
                     case 32: {
-                        this.toggleShortDesc();
+                        this.toggleSummaryDesc();
                         e.stopPropagation();
                         return false;
                         break;
@@ -238,7 +238,7 @@
                 return true;
             },
             handleClick: function(e) {
-                this.toggleShortDesc();
+                this.toggleSummaryDesc();
                 e.stopPropagation();
                 return false;
             }
