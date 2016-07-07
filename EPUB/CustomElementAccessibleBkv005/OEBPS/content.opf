@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package prefix="ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/" unique-identifier="uuid_id" version="3.0" xmlns="http://www.idpf.org/2007/opf">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <meta property="role" refines="#creator01">aut</meta>
+    <meta property="file-as" refines="#creator01">DIAGRAM Center</meta>
+    <dc:identifier id="uuid_id">de3ae9bd-1fa2-418e-9561-573e168e9e78</dc:identifier>
+    <meta property="identifier-type" refines="#uuid_id">uuid</meta>
+    <meta property="dcterms:modified">2015-05-13T08:43:00Z</meta>
+    <meta property="ibooks:specified-fonts">true</meta>
+    <meta property="ibooks:version">2.0.2</meta>
+    <meta name="cover" content="cover-image"/>
+    <meta content="0.9.0" name="Sigil version"/>
+    <dc:title>Accessible Images Sample Book</dc:title>
+    <dc:creator opf:role="aut">DIAGRAM Center</dc:creator>
+    <dc:publisher>DIAGRAM Center</dc:publisher>
+    <dc:rights>All rights reserved.</dc:rights>
+    <dc:date opf:event="">2013-08-23</dc:date>
+  </metadata>
+  <manifest>
+    <item href="Images/cover.jpg" id="cover-image" media-type="image/jpeg" properties="cover-image"/>
+    <item href="Text/cover.xhtml" id="cover" media-type="application/xhtml+xml"/>
+    <item href="Text/titlepage.xhtml" id="titlepage" media-type="application/xhtml+xml"/>
+    <item href="Text/nav.xhtml" id="nav" media-type="application/xhtml+xml" properties="nav"/>
+    <item href="Text/01-HeartLung.xhtml" id="text3" media-type="application/xhtml+xml"/>
+    <item href="Text/02-Map.xhtml" id="text4" media-type="application/xhtml+xml"/>
+    <item href="Text/03a-Institutional.xhtml" id="text5" media-type="application/xhtml+xml"/>
+    <item href="Text/03b-Quadratic.xhtml" id="text6" media-type="application/xhtml+xml"/>
+    <item href="Text/04-RelationalDiagrams.xhtml" id="text7" media-type="application/xhtml+xml"/>
+    <item href="Text/05-AnglesSurvey.xhtml" id="text8" media-type="application/xhtml+xml"/>
+    <item href="Text/Glossary.xhtml" id="text17" media-type="application/xhtml+xml"/>
+    <item href="Text/Resources.xhtml" id="text18" media-type="application/xhtml+xml"/>
+    <item href="Text/sourcefiles.xhtml" id="text20" media-type="application/xhtml+xml"/>
+    <item href="Images/heart-lung-tg.jpg" id="image8" media-type="image/jpeg"/>
+    <item href="Images/map.jpg" id="image12" media-type="image/jpeg"/>
+    <item href="Images/soc.jpg" id="image24" media-type="image/jpeg"/>
+    <item href="Images/math.jpg" id="image36" media-type="image/jpeg"/>
+    <item href="Images/eq.jpg" id="image38" media-type="image/jpeg"/>
+    <item href="Images/son1.jpg" id="image39" media-type="image/jpeg"/>
+    <item href="Images/son2.jpg" id="image41" media-type="image/jpeg"/>
+    <item href="Images/ex6-context.jpg" id="image44" media-type="image/jpeg"/>
+    <item href="Images/ex6.jpg" id="image46" media-type="image/jpeg"/>
+    <item href="Images/survey.jpg" id="image53" media-type="image/jpeg"/>
+    <item href="Images/logo-osep.gif" id="image54" media-type="image/gif"/>
+    <item href="Images/anglesmap.jpg" id="image87" media-type="image/jpeg"/>
+    <item href="Images/logo.jpg" id="image89" media-type="image/jpeg"/>
+    <item href="Images/barchart.jpg" id="image90" media-type="image/jpeg"/>
+    <item href="Images/barchart_2.jpg" id="image91" media-type="image/jpeg"/>
+    <item href="Images/ex1.jpg" id="image97" media-type="image/jpeg"/>
+    <item href="Images/relational1.png" id="image101" media-type="image/png"/>
+    <item href="Images/relational2.png" id="image102" media-type="image/png"/>
+    <item href="Styles/stylesheet.css" id="css" media-type="text/css"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+    <item href="Text/custom.html" id="custom.html" media-type="application/xhtml+xml"/>
+    <item href="Styles/bootstrap.min.css" id="bootstrap.min.css" media-type="text/css"/>
+    <item href="Misc/jquery-1.12.0.min.js" id="jquery-1.12.0.min.js" media-type="text/javascript"/>
+    <item href="Text/polymer.html" id="polymer.html" media-type="application/xhtml+xml"/>
+    <item href="Misc/webcomponents.min.js" id="webcomponents.min.js" media-type="text/javascript"/>
+    <item href="Misc/bootstrap.min.js" id="bootstrap.min.js" media-type="text/javascript"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="cover"/>
+    <itemref idref="titlepage"/>
+    <itemref idref="nav"/>
+    <itemref idref="text3"/>
+    <itemref idref="text4"/>
+    <itemref idref="text5"/>
+    <itemref idref="text6"/>
+    <itemref idref="text7"/>
+    <itemref idref="text8"/>
+    <itemref idref="text17"/>
+    <itemref idref="text18"/>
+    <itemref idref="text20"/>
+    <itemref idref="custom.html"/>
+    <itemref idref="polymer.html"/>
+  </spine>
+</package>
