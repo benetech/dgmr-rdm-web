@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <title>Sample 4: Relational Diagrams</title>
+    <link href="../Styles/stylesheet.css" type="text/css" rel="stylesheet"/>
+    <link rel="import" href="custom.html"/>
+
+  </head>
+
+  <body xml:lang="en">
+    <section epub:type="chapter">
+      <h1>Sample 4: Relational Diagrams</h1>
+      <nav>
+        <h2> These buttons control the entire page. Pressing them shows all descriptions of that type on the page</h2>
+        <dg-btn-summary dg-name="*">Toggle all short descriptions </dg-btn-summary>
+        <dg-btn-longdesc dg-name="*">Toggle all long descriptions </dg-btn-longdesc>
+        <dg-btn-simpledesc dg-name="*">Toggle all simplified descriptions </dg-btn-simpledesc>
+      </nav>
+      <section id="radial">
+        <h2>Radial/Web Diagrams</h2>
+        <img src="../Images/relational1.png" alt="Radial/Web Diagrams"/>
+      <section>
+        <dg-btn-summary dg-name="web" aria-label="Show or hide Short Description">Show/Hide Short Description</dg-btn-summary>
+        <dg-summary dg-name="web">
+          A web diagram has a center circle and five smaller circles connected to it. The center circle is labeled Scientific Methods. One connected circle is labeled Observation. The other four circles are labeled A, B, C, and D. 
+        </dg-summary>
+      </section>
+      <h3>Making This Image Accessible</h3>
+
+      <p class="ind">This image can be made accessible with an image description. Radial and Web diagrams are often used to show relationships between concepts and ideas. Simple radial diagrams like the one shown above, can be described in a few sentences. Complex radial diagrams require converting information into an outline.</p>
+    </section>
+
+    <section id="hierarchy">
+      <h2>Hierarchy/Tree Diagrams</h2>
+
+      <img src="../Images/relational2.png" alt="Hierarchy/Tree Diagrams"/>
+        <section>
+          <dg-btn-summary dg-name="tree" aria-label="Show or hide Short Description">Show/Hide Short Description</dg-btn-summary>
+          <dg-btn-simpledesc dg-name="tree" aria-label="Show or hide simple Description">Show/Hide simple Description</dg-btn-simpledesc>
+          <dg-btn-longdesc dg-name="tree" aria-label="Show or hide long Description">Show/Hide long Description</dg-btn-longdesc>
+          <dg-summary dg-name="tree">
+            This should be the default approach, especially for lower grade levels. A tree diagram shows different branches of science. There are three levels, from top to bottom. The highest level is Natural Science. The next level has Physical Science, Earth and Space Science, and Life Science. Physical Science includes Physics and Chemistry. Earth and Space Science includes Geology, Meteorology, Astronomy, and Oceanography. Life Science includes Botany, Ecology, Zoology, and Genetics. 
+          </dg-summary>
+
+          <dg-simpledesc dg-name="tree">
+            This   approach is appropriate for high school grade levels, where students are comfortable navigating bulleted lists with a screen reader. A tree diagram shows different branches of science. There are three levels, from top to bottom. The highest level is Natural Science. The next level has Physical Science, Earth and Space Science, and Life Science. 
+            <ul>
+              <li>
+              Physical Science: <br/>
+                <ul>
+                  <li>Physics</li>
+                  <li>Chemistry</li>
+                </ul>
+              </li>
+              <li>
+              Earth and Space Science: <br/>
+                <ul>
+                  <li>Geology</li>
+                  <li>Meteorology</li>
+                  <li>Astronomy</li>
+                  <li>Oceanography </li>
+                </ul>
+              </li>
+              <li>
+              Life Science: <br/>
+                <ul>
+                  <li>Botany</li>
+                  <li>Ecology</li>
+                  <li>Zoology</li>
+                  <li>Genetics </li>
+                </ul>
+              </li>
+            </ul>
+          </dg-simpledesc>
+
+          <dg-longdesc dg-name="tree">
+            This is the most complex approach and should only be used for academic, college-level, or professional texts. A tree diagram shows different branches of science. There are three levels, from top to bottom. 
+            <ul>
+              <li>
+            Natural Science.  <br/>
+              <ul>
+                <li>Physical Science. <br/>
+                  <ul>
+                    <li>Physics </li>
+                    <li>Chemistry.</li>
+                  </ul>
+                </li>
+                <li>
+              Earth and Space Science. <br/>
+                  <ul>
+                    <li>Geology</li>
+                    <li>Meteorology </li>
+                    <li>Astronomy </li>
+                    <li> Oceanography</li>
+                  </ul>
+                </li>
+                <li>
+              Life Science. <br/>
+                  <ul>
+                    <li>Botany</li>
+                    <li>Ecology </li>
+                    <li>Zoology</li>
+                    <li>Genetics.</li>
+                  </ul>
+                </li>
+              </ul>
+              </li>
+            </ul>
+          </dg-longdesc>
+        </section>
+
+        <h3>Making This Image Accessible</h3>
+
+        <p class="first">
+          This image can be made accessible with an image description. Hierarchy and Tree diagrams are often used to show relationships between types of activities, ideas, or responsibilities, such as roles in an organization. These diagrams can be all text or a combination of text and illustrations. Since the layers of these diagrams can become complex, it is important to know the purpose of the diagram and the intended audience. For this reason, three different descriptions for three different audiences are provided for this diagram.
+        </p>
+      </section>
+    </section>
+  </body>
+</html>
