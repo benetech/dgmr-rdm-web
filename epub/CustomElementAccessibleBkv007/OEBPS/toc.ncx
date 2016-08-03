@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ncx version="2005-1" xml:lang="en" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta content="de3ae9bd-1fa2-418e-9561-573e168e9e78" name="dtb:uid"/>
+    <meta content="2" name="dtb:depth"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>Accessible Image Sample Book</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="nav1" playOrder="1">
+      <navLabel>
+        <text>Sample 1: Heart and Lung Diagram</text>
+      </navLabel>
+      <content src="Text/01-HeartLung.xhtml"/>
+    </navPoint>
+    <navPoint id="nav2" playOrder="2">
+      <navLabel>
+        <text>Sample 2: Map of North America</text>
+      </navLabel>
+      <content src="Text/02-Map.xhtml"/>
+    </navPoint>
+    <navPoint id="nav3" playOrder="3">
+      <navLabel>
+        <text>Sample 3: Charts and Graphs</text>
+      </navLabel>
+      <content src="Text/03a-Institutional.xhtml#charts"/>
+    </navPoint>
+    <navPoint id="nav4" playOrder="4">
+      <navLabel>
+        <text>Institutional Discrimination Bar Chart</text>
+      </navLabel>
+      <content src="Text/03a-Institutional.xhtml"/>
+    </navPoint>
+    <navPoint id="nav5" playOrder="5">
+      <navLabel>
+        <text>Quadratic Functions and Their Graphs</text>
+      </navLabel>
+      <content src="Text/03b-Quadratic.xhtml"/>
+    </navPoint>
+    <navPoint id="nav6" playOrder="6">
+      <navLabel>
+        <text>Sample 4: Relational Diagrams</text>
+      </navLabel>
+      <content src="Text/04-RelationalDiagrams.xhtml"/>
+    </navPoint>
+    <navPoint id="nav7" playOrder="7">
+      <navLabel>
+        <text>Radial/Web Diagrams</text>
+      </navLabel>
+      <content src="Text/04-RelationalDiagrams.xhtml#radial"/>
+    </navPoint>
+    <navPoint id="nav8" playOrder="8">
+      <navLabel>
+        <text>Hierarchy/Tree Diagrams</text>
+      </navLabel>
+      <content src="Text/04-RelationalDiagrams.xhtml#hierarchy"/>
+    </navPoint>
+    <navPoint id="nav9" playOrder="9">
+      <navLabel>
+        <text>Sample 5: Angles on a Survey Map</text>
+      </navLabel>
+      <content src="Text/05-AnglesSurvey.xhtml"/>
+    </navPoint>
+    <navPoint id="nav10" playOrder="10">
+      <content src="Text/Glossary.xhtml"/>
+    </navPoint>
+    <navPoint id="nav11" playOrder="11">
+      <navLabel>
+        <text>Guidelines, Tutorials, and Other Resources</text>
+      </navLabel>
+      <content src="Text/Resources.xhtml"/>
+    </navPoint>
+    <navPoint id="nav12" playOrder="12">
+      <navLabel>
+        <text>Source Files and Image Citations</text>
+      </navLabel>
+      <content src="Text/sourcefiles.xhtml"/>
+    </navPoint>
+    <navPoint id="nav13" playOrder="13">
+      <navLabel>
+        <text>Appendix A: List of Long Descriptions.</text>
+      </navLabel>
+      <content src="Text/appendix_a.xhtml"/>
+    </navPoint>
+    <navPoint id="nav14" playOrder="14">
+      <navLabel>
+        <text>Appendix B: List of Tactile Descriptions.</text>
+      </navLabel>
+      <content src="Text/appendix_B.xhtml"/>
+    </navPoint>
+  </navMap>
+</ncx>
