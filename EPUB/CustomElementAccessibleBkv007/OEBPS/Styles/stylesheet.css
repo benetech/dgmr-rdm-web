@@ -321,3 +321,7 @@ p.img-text {
 	padding: 20px;
 	float:left;
 }
+
+ul.unstyled {
+    list-style-type:none
+}
