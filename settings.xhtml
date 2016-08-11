@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <script src="webcomponents/settings.js"></script>
+      <script src="webcomponents/customSettings.js"></script>
+      <title>Settings</title>
+  </head>
+  <body>
+    <div id="page">
+      The following settings are available.
+      <div id="settingspanel">
+        <p>
+        <label for="dg-summary">
+          Display image summaries?
+        </label>
+        <input type="checkbox" id="dg-summary"/>
+        </p>
+        <p>
+        <label for="dg-longdesc">
+          Display long descriptions?
+        </label>
+        <input type="checkbox" id="dg-longdesc"/>
+        </p>
+        <p>
+        <label for="dg-simpledesc">
+          Display simple descriptions?
+        </label>
+        <input type="checkbox" id="dg-simpledesc"/>
+        </p>
+        <p>
+        <label for="dg-tactiledesc">
+          Display an icon for  images with tactile equivalents?
+        </label>
+        <input type="checkbox" id="dg-tactiledesc"/>
+        </p>
+      </div>
+    </div>
+    <script type="text/javascript">
+     <![CDATA[
+    var elements = document.querySelectorAll("input,[type=checkbox]");
+    //It's sad that node lists don't have itterator properties.
+    for(var i =0, j=elements[i]; i<elements.length; i++){
+      customElementSettings.registerElement(j);
+      j.addEventListener("change", customElementSettings.onChange);
+    }
+     ]]>
+    </script>
+  </body>
+</html>

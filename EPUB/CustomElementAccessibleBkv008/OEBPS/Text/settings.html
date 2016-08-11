@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+    <head>
+      <script src="../Misc/settings.js" type="text/javascript"></script>
+      <script src="../Misc/customSettings.js" type="text/javascript"></script>
+      <link href="../Styles/stylesheet.css" type="text/css" rel="stylesheet"/>
+      <title>Settings</title>
+  </head>
+  <body xml:lang="en">
+    <section epub:type="chapter" class="container">
+      <p>The following settings are available.</p>
+      <div id="settingspanel">
+        <p>
+        <label for="dg-summary">
+          Display image summaries?
+        </label>
+        <input type="checkbox" id="dg-summary"/>
+        </p>
+        <p>
+        <label for="dg-longdesc">
+          Display long descriptions?
+        </label>
+        <input type="checkbox" id="dg-longdesc"/>
+        </p>
+        <p>
+        <label for="dg-simpledesc">
+          Display simple descriptions?
+        </label>
+        <input type="checkbox" id="dg-simpledesc"/>
+        </p>
+        <p>
+        <label for="dg-tactiledesc">
+          Display an icon for  images with tactile equivalents?
+        </label>
+        <input type="checkbox" id="dg-tactiledesc"/>
+        </p>
+      </div>
+    </section>
+    <script type="text/javascript">
+    document.addEventListener("ready", function(){
+      var elements = document.querySelectorAll("input,[type=checkbox]");
+      //It's sad that node lists don't have itterator properties.
+      for(var i =0, j=elements[i]; i<elements.length; i++){
+        customElementSettings.registerElement(j);
+        j.addEventListener("change", customElementSettings.onChange);
+      }
+      });
+    </script>
+  </body>
+</html>

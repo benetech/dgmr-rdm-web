@@ -40,12 +40,12 @@ var customElementSettings = {};
             @returns: void
         */
         if(typeof(callback) !== "function") throw(TypeError("Callback must be a function"));
-        get(tag, function(result){
-            if(result === null){ 
+        get(tag, function(res){
+            if(res === null){ 
                 put(tag, true);
-                result=true;
+                res=true;
             }
-            callback(result);
+            callback(res);
         });
     }
     
@@ -70,24 +70,29 @@ var customElementSettings = {};
             }
         });
     }    
-    
-    customElementSettings.onChange = function(evt){
+    function _createSettingToggle(tagName, localeSettingsText, setting){
         /* 
-            onChange
-            handler for toggling this setting.
-            @var evt: the event.
-            */
-            put(this.id, this.checked);
+        _createSettingToggle
+            Creates an element suitable for toggling this setting.
+            @var tagName: the tagName of the custom component settings toggle.
+            @var localeSettingsText: the localized text to display for this setting I.e. what the UI shows to the user.
+            @returns: jquery object that contains this element.
+        */
+            var state = (setting ? "checked" : "");
+        return $("<label>"+localeSettingsText+ "</label>").append(
+            '<input type="checkbox" '+ state + '/>'
+        ).on("change", function(evt){
+            put(tagName, this.firstElementChild.checked);
+        });
     }
     
-    customElementSettings.registerElement = function(element){
-        setOrGetCustomElementFromStore(element.id, (value) =>{
-            if(value){
-                element.setAttribute("checked", "checked");
-            }
-            else{
-                element.removeAttribute("checked");
-            }
+    customElementSettings.createSettingsElements = function(settingsObjects){
+        var page = $("#settingspanel");
+        //this won't work in any older browser, but that's okay, because I only work in chrome anyway.
+        settingsObjects.forEach(function(setting) {
+            setOrGetCustomElementFromStore(setting[0], function(value){
+                page.append(_createSettingToggle(setting[0], setting[1], value));
+            });
         });
     }
 })();
